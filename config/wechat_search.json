@@ -1,0 +1,37 @@
+{
+  "seeds": [],
+  "seeds_from_keywords": {
+    "file": "wechat_search_keywords.txt",
+    "template": "https://weixin.sogou.com/weixin?type=2&query={kw}"
+  },
+  "allowed_domains": [
+    "weixin.sogou.com",
+    "mp.weixin.qq.com"
+  ],
+  "max_concurrency": 2,
+  "per_domain_delay_ms": 1500,
+  "respect_robots_txt": false,
+  "max_retries": 3,
+  "retry_backoff_initial_ms": 800,
+  "retry_backoff_max_ms": 8000,
+  "disable_global_link_extraction": true,
+  "save_page_html": false,
+  "storage": {
+    "output_dir": "output/wechat_search",
+    "sqlite_path": "output/wechat_search/crawler_wechat_search.db",
+    "html_subdir": "pages"
+  },
+  "plugins": [
+    "plugins.wechat_search_plugin"
+  ],
+  "plugin_params": {
+    "wechat": {
+      "count": 10,
+      "reset_output_on_start": true,
+      "save_article_json": false,
+      "search_follow_pages": true,
+      "search_max_pages": 10,
+      "verify_detail": true
+    }
+  }
+}

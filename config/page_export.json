@@ -1,0 +1,92 @@
+{
+  "seeds": [],
+  "seeds_from_keywords": {
+    "file": "page_export.txt",
+    "template": "{kw}"
+  },
+  "allowed_domains": [],
+  "max_concurrency": 2,
+  "per_domain_delay_ms": 2000,
+  "respect_robots_txt": false,
+  "max_retries": 3,
+  "retry_backoff_initial_ms": 800,
+  "retry_backoff_max_ms": 8000,
+  "disable_global_link_extraction": true,
+  "save_page_html": true,
+  "storage": {
+    "output_dir": "output/page_export",
+    "sqlite_path": "output/page_export/crawler_page_export.db",
+    "html_subdir": "pages"
+  },
+  "plugins": [
+    "plugins.page_export_plugin"
+  ],
+  "plugin_params": {
+    "pdf": {
+      "enabled": false,
+      "timeout_sec": 3000,
+      "wait_until": "networkidle",
+      "pre_wait_ms": 5000,
+      "scroll_to_bottom": true,
+      "scroll_step_px": 1600,
+      "scroll_pause_ms": 1000,
+      "scroll_max_ms": 90000,
+      "print_pre_wait_ms": 5000,
+      "prefer_css_page_size": true,
+      "filename_use_title": true,
+      "filename_prefix_host": true,
+      "fallback_html": false,
+      "user_agent": "",
+      "extra_headers": {
+        "Referer": "https://blog.csdn.net/",
+        "Accept-Language": "zh-CN,zh;q=0.9"
+      },
+      "cookies_file": "",
+      "locale": "zh-CN",
+      "timezone_id": "Asia/Shanghai"
+      ,
+      "inject_print_css": true,
+      "print_css": "@media print { html, body, #home, #main, #mainContent, #cnblogs_post_body, .post, .postBody, .post-body, .forFlow, #topics { display:block !important; visibility:visible !important; opacity:1 !important; position:static !important; transform:none !important; } * { color-adjust: exact !important; -webkit-print-color-adjust: exact !important; } #header, .header, #top_nav, #navigator, #sideBar, .sidebar, #footer, .footer, .ad_text_commentbox, .banner, #under_post_card1, #under_post_card2, #blog_c1, #related_posts_card, #HistoryToday, #comment_form, #page_end_html { display:none !important; visibility:hidden !important; } }",
+      "disable_page_print_css": true,
+      "force_show_selectors": [
+        "#cnblogs_post_body",
+        ".post",
+        ".postBody",
+        ".post-body",
+        "#main",
+        "#topics",
+        "#home",
+        "#mainContent",
+        ".forFlow"
+      ]
+    },
+    "markdown": {
+      "enabled": true,
+      "selectors": ["#cnblogs_post_body", ".postBody", ".post", "#main", "#content", "article", ".entry-content"],
+      "include_title": true,
+      "filename_use_title": true,
+      "filename_prefix_host": true
+    },
+    "archive": {
+      "enabled": true,
+      "timeout_sec": 3000,
+      "wait_until": "networkidle",
+      "pre_wait_ms": 3000,
+      "scroll_to_bottom": true,
+      "scroll_step_px": 1600,
+      "scroll_pause_ms": 1000,
+      "scroll_max_ms": 90000
+    },
+    "fullpage": {
+      "enabled": true,
+      "timeout_sec": 3000,
+      "wait_until": "networkidle",
+      "pre_wait_ms": 8000,
+      "scroll_to_bottom": true,
+      "scroll_step_px": 1600,
+      "scroll_pause_ms": 1000,
+      "scroll_max_ms": 120000,
+      "singlefile_script_path": "assets/single-file.js"
+    }
+  }
+}
