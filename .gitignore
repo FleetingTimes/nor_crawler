@@ -1,2 +1,2 @@
 output/
-plugins/
+plugins/__pycache__
